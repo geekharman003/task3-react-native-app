@@ -1,11 +1,12 @@
 import { ApolloProvider } from "@apollo/client/react";
 import { client as apolloClient } from "./src/apollo/client";
-import HomeScreen from "./src/screens/HomeScreen";
+import AppNavigator from "./src/navigation/AppNavigator";
 
 export default function App() {
   return (
     <ApolloProvider client={apolloClient}>
-      <HomeScreen />
+      <AppNavigator>
+      </AppNavigator>
     </ApolloProvider>
   );
 }
