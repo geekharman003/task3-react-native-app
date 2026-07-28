@@ -1,11 +1,8 @@
 import { View } from "react-native";
-import { useQuery } from "@apollo/client/react";
 import React from "react";
-import { GET_EMPLOYEES } from "../graphql/queries";
 import PrimaryButton from "../components/PrimaryButton";
 
 export default function HomeScreen() {
-  const { loading, error, data } = useQuery(GET_EMPLOYEES);
   return (
     <View
       style={{
