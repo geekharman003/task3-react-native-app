@@ -4,11 +4,21 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import EmployeeListScreen from "../screens/EmployeeListScreen";
 import EmployeeDetailScreen from "../screens/EmployeeDetailScreen";
+import AddEmployeeScreen from "../screens/AddEmployeeScreen";
+import UpdateEmployeeScreen from "../screens/UpdateEmployeeScreen";
 
 export type RootStackParamList = {
   Home: undefined;
   Employees: undefined;
-  EmployeeDetails: {id:number};
+  EmployeeDetails: { id: number };
+  AddEmployee: undefined;
+  UpdateEmployee: {
+    id: number;
+    name: string;
+    email: string;
+    department: string;
+    designation: string;
+  };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -25,6 +35,14 @@ export default function AppNavigator() {
         <Stack.Screen
           name="EmployeeDetails"
           component={EmployeeDetailScreen}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="AddEmployee"
+          component={AddEmployeeScreen}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="UpdateEmployee"
+          component={UpdateEmployeeScreen}
         ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
