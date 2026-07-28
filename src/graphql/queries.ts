@@ -5,6 +5,9 @@ export const GET_EMPLOYEES = gql`
     employees {
       id
       name
+      email
+      designation
+      department
     }
   }
 `;
