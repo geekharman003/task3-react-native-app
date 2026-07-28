@@ -11,3 +11,14 @@ export const GET_EMPLOYEES = gql`
     }
   }
 `;
+
+export const GET_EMPLOYEE = gql`
+query getEmployee($id: ID!) {
+employee(id: $id) {
+   id
+    name
+    email
+    department
+    designation
+}
+}`;

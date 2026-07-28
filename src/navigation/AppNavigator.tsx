@@ -3,10 +3,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "../screens/HomeScreen";
 import EmployeeListScreen from "../screens/EmployeeListScreen";
+import EmployeeDetailScreen from "../screens/EmployeeDetailScreen";
 
 export type RootStackParamList = {
   Home: undefined;
   Employees: undefined;
+  EmployeeDetails: {id:number};
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -19,6 +21,10 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Employees"
           component={EmployeeListScreen}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="EmployeeDetails"
+          component={EmployeeDetailScreen}
         ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

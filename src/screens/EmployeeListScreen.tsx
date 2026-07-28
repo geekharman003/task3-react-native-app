@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TextInput, Button } from "react-native";
+import { View, Text, FlatList, TextInput } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client/react";
 import { GET_EMPLOYEES } from "../graphql/queries";
@@ -24,8 +24,6 @@ export default function EmployeeListScreen() {
     const filteredResult = data?.employees.filter((employee) =>
       employee.name.toLowerCase().includes(name.toLowerCase()),
     );
-
-    console.log(filteredResult);
 
     if (filteredResult) {
       setFilteredEmployees(filteredResult);
@@ -62,6 +60,7 @@ export default function EmployeeListScreen() {
               email={item.email}
               department={item.department}
               designation={item.designation}
+              
             />
           )}
         />
