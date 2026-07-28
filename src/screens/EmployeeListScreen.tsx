@@ -7,6 +7,7 @@ import { GET_EMPLOYEES } from "../graphql/queries";
 import EmployeeCard from "../components/EmployeeCard";
 import { Employee, EmployeeCardProps } from "../types/employee";
 import { RootStackParamList } from "../navigation/AppNavigator";
+import Searchbar from "../components/Searchbar";
 
 export default function EmployeeListScreen() {
   const { loading, error, data } = useQuery<{ employees: EmployeeCardProps[] }>(
@@ -49,18 +50,7 @@ export default function EmployeeListScreen() {
           padding: 5,
         }}
       >
-        <TextInput
-          style={{
-            width: 200,
-            borderColor: "black",
-            borderWidth: 1,
-            outline: "none",
-            padding: 5,
-            borderRadius: 10,
-          }}
-          onChangeText={(text) => filterEmployees(text)}
-          value={text}
-        />
+        <Searchbar text={text} filterEmployees={filterEmployees} />
         <Pressable
           onPress={() => navigation.navigate("AddEmployee")}
           style={{ backgroundColor: "#C9EB8D", padding: 10, borderRadius: 10 }}

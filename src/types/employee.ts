@@ -17,10 +17,3 @@ export interface Employee {
   designation: string;
   department: string;
 }
-
-
-export interface TextFieldProps {
-    content:string,
-    value:string,
-    setValue: Dispatch<SetStateAction<string>>;
-}

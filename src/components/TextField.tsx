@@ -1,6 +1,6 @@
 import { View, Text, TextInput } from "react-native";
 import React from "react";
-import { TextFieldProps } from "../types/employee";
+import { TextFieldProps } from "../types/textField";
 
 export default function TextField({
   content,
