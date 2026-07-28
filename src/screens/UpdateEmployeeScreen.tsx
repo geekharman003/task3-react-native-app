@@ -1,11 +1,26 @@
 import { View, Text, TextInput, Pressable } from "react-native";
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client/react";
-import { useRoute } from "@react-navigation/native";
+import { useRoute, RouteProp } from "@react-navigation/native";
 import { UPDATE_EMPLOYEE } from "../graphql/queries";
 
+type RootStackParamList = {
+  UpdateEmployeeDetailScreen: {
+    id: number;
+    name: string;
+    email: string;
+    department: string;
+    designation: string;
+  };
+};
+
+type UpdateEmployeeDetailScreenRouteProp = RouteProp<
+  RootStackParamList,
+  "UpdateEmployeeDetailScreen"
+>;
+
 export default function UpdateEmployeeScreen() {
-  const route = useRoute();
+  const route = useRoute<UpdateEmployeeDetailScreenRouteProp>();
   const [name, setName] = useState(route?.params?.name);
   const [email, setEmail] = useState(route?.params?.email);
   const [department, setDepartment] = useState(route?.params?.department);

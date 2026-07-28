@@ -5,7 +5,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useQuery } from "@apollo/client/react";
 import { GET_EMPLOYEES } from "../graphql/queries";
 import EmployeeCard from "../components/EmployeeCard";
-import { EmployeeCardProps } from "../types/employee";
+import { Employee, EmployeeCardProps } from "../types/employee";
 import { RootStackParamList } from "../navigation/AppNavigator";
 
 export default function EmployeeListScreen() {
@@ -13,9 +13,9 @@ export default function EmployeeListScreen() {
     GET_EMPLOYEES,
   );
 
-  const [filteredEmployees, setFilteredEmployees] = useState<
-    EmployeeCardProps[]
-  >(data?.employees || []);
+  const [filteredEmployees, setFilteredEmployees] = useState<Employee[]>(
+    data?.employees || [],
+  );
   const [text, setText] = useState<string>("");
 
   type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -78,6 +78,8 @@ export default function EmployeeListScreen() {
               email={item.email}
               department={item.department}
               designation={item.designation}
+              filteredEmployees={filteredEmployees}
+              setFilteredEmployees={setFilteredEmployees}
             />
           )}
         />

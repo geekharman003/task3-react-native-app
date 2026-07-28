@@ -13,6 +13,8 @@ export default function EmployeeCard({
   email,
   department,
   designation,
+  filteredEmployees,
+  setFilteredEmployees,
 }: EmployeeCardProps) {
   const [deleteEmployee] = useMutation(DELETE_EMPLOYEE);
   type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -21,6 +23,10 @@ export default function EmployeeCard({
   async function handleDelete() {
     try {
       await deleteEmployee({ variables: { id } });
+      const filteredResult = filteredEmployees.filter(
+        (employee) => employee.id !== id,
+      );
+      setFilteredEmployees(filteredResult);
     } catch (error) {
       console.log("error occured:", error);
     }
